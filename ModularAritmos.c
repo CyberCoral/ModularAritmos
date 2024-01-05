@@ -5,7 +5,7 @@
 /*
 
 Created by CyberCoral
-Version Tue/02/Jan/2024
+Version Fri/05/Jan/2024
 
 -----------------
 Github:
@@ -65,20 +65,17 @@ double* complex_mod(double a[2], double b[2]){
     double b1 = b[0];
     double b2 = b[1];
     double dem = pow(b1,2) + pow(b2,2);
-    double c_dem = pow(b1,2) - pow(b2,2);
-
+    
     if(dem == 0){
         printf("\nThe denominator cannot be zero.");
         exit(1);
     };
 
     double f1 = floor(((a1 * b1) + (a2 * b2)) / dem);
-    double f2 = floor(((a1 * b2) - (b1 * a2)) / dem);
-    double g1 = (a1 * c_dem - (2 * a2 * b1 * b2)) / dem;
-    double g2 = (a2 * c_dem - (2 * a1 * b1 * b2)) / dem;
+    double f2 = floor(((a2 * b1) - (a1 * b2)) / dem);
 
-    complex_module[0] = g1 - (f1 * b1) + (f2 * b2);
-    complex_module[1] = g2 + (f2 * b2) + (f1 * b1);
+    complex_module[0] = a1 - (f1 * b1) + (f2 * b2);
+    complex_module[1] = a2 - (f2 * b2) - (f1 * b1);
 
     return complex_module;
 
