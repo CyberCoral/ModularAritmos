@@ -90,12 +90,10 @@ def complex_mod(a: list, b: list, complex_: bool = True):
         raise ZeroDivisionError("The denominator must not be zero.")
 
     f1 = floor1(((a1 * b1) + (a2 * b2)) / dem)
-    f2 = floor1(((a1 * b2) - (b1 * a2)) / dem)
+    f2 = floor1(((a2 * b1) - (a1 * b2)) / dem)
 
-    g1 = (a1 * c_dem - (2 * a2 * b1 * b2)) / dem
-    g2 = (a2 * c_dem - (2 * a1 * b1 * b2)) / dem
 
-    result = [ g1 - (f1 * b1) + (f2 * b2), g2 + (f1 * b2) + (f2 * b1) ]
+    result = [ a1 - (f1 * b1) + (f2 * b2), a2 - (f1 * b2) - (f2 * b1) ]
 
     if complex_ != True:
         return result
